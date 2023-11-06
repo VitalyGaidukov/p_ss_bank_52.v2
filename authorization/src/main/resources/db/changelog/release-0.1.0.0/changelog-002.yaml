@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: "01"
+      author: Gaidukov
+      changes:
+        - renameTable:
+            newTableName: users
+            oldTableName: user

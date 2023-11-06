@@ -1,0 +1,36 @@
+server:
+  port: 8087
+  servlet:
+    context-path: /api/authorization
+jwt:
+  secret: Dfhfydb6JKGGkjdldcjd8ldjJKNHK
+  lifetime: 30m
+management:
+  server:
+    port: 8187
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: authorizations
+  datasource:
+    url: jdbc:postgresql://localhost:7777/postgres
+    username: postgres
+    password: password
+  liquibase:
+    default-schema: authorizations
+    change-log: db/changelog/db.changelog-master.yaml
+    enabled: true
+    drop-first: false
+  application:
+    name: authorization-app
+
